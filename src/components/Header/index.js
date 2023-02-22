@@ -8,14 +8,18 @@ import {
 } from './styledComponents'
 
 const Header = props => {
-  const {score, choicesList} = props
+  const {score} = props
 
   return (
     <Navbar>
       <NavTabsList>
-        {choicesList.map(each => (
-          <NavHeading key={each.id}>{each.id}</NavHeading>
-        ))}
+        <NavHeading>
+          Rock
+          <br />
+          Paper
+          <br />
+          Scissors
+        </NavHeading>
       </NavTabsList>
       <ScoreContainer>
         <ScoreHeading>Score</ScoreHeading>

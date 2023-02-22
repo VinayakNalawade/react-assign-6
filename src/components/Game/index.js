@@ -97,7 +97,7 @@ class Game extends Component {
       {choicesList.map(each => (
         <GameTabItem key={each.id}>
           <GameTabButton
-            data-testid={each.id}
+            data-testid={`${each.id.toLowerCase()}Button`}
             value={each.id}
             onClick={this.changeCurrentPage}
             type="button"
@@ -122,14 +122,14 @@ class Game extends Component {
       <ResultPage>
         <ResultTab>
           <ResultName>YOU</ResultName>
-          <ResultIcon alt="result" src={userObj[0].imageUrl} />
+          <ResultIcon alt="your choice" src={userObj[0].imageUrl} />
         </ResultTab>
         <ResultTab>
           <ResultName>OPPONENT</ResultName>
-          <ResultIcon alt="result" src={opponentObj[0].imageUrl} />
+          <ResultIcon alt="opponent choice" src={opponentObj[0].imageUrl} />
         </ResultTab>
         <ResultTab>
-          <ResultName>{result}</ResultName>
+          <ResultName as="p">{result}</ResultName>
           <RulesButton type="button" onClick={this.changeToGamePage}>
             PLAY AGAIN
           </RulesButton>
@@ -156,14 +156,13 @@ class Game extends Component {
 
     return (
       <MainContainer>
-        <Header score={score} choicesList={choicesList} />
+        <Header score={score} />
         {this.renderCurrentPage()}
         <Popup modal trigger={<RulesButton type="button">Rules</RulesButton>}>
           {close => (
             <PopupView>
               <RiCloseLine onClick={() => close()} />
               <PopupContainer>
-                <PopupHeading>Rules</PopupHeading>
                 <PopupImg
                   alt="rules"
                   src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rules-image.png"

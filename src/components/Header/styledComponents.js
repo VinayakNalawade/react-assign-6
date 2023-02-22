@@ -17,9 +17,9 @@ export const Navbar = styled.nav`
 export const NavTabsList = styled.ul`
   padding: 0;
 `
-export const NavHeading = styled.li`
-  list-style-type: none;
+export const NavHeading = styled.h1`
   font-size: 28px;
+  margin: 0;
 `
 
 export const ScoreContainer = styled.div`
@@ -30,13 +30,15 @@ export const ScoreContainer = styled.div`
   text-align: center;
 `
 
-export const ScoreHeading = styled.h1`
+export const ScoreHeading = styled.p`
   font-size: 28px;
   margin: 12px;
   margin-bottom: 0;
+  font-weight: 600;
 `
 
-export const Score = styled.h1`
+export const Score = styled.p`
   margin: 12px;
   font-size: 40px;
+  font-weight: 600;
 `

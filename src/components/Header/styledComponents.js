@@ -41,4 +41,5 @@ export const Score = styled.p`
   margin: 12px;
   font-size: 40px;
   font-weight: 600;
+  font-family: Roboto;
 `

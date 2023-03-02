@@ -71,13 +71,6 @@ export const PopupView = styled.div`
   align-items: flex-end;
 `
 
-export const PopupHeading = styled.h1`
-  color: #ffffff;
-  font-family: bree serif;
-  font-size: 30px;
-  font-weight: 500;
-`
-
 export const PopupImg = styled.img`
   width: 100%;
 `
@@ -89,7 +82,9 @@ export const ResultTab = styled(GameTabItem)`
   margin: 0;
 `
 
-export const ResultName = styled(PopupHeading)`
+export const ResultName = styled.h1`
+  color: #ffffff;
+  font-family: bree serif;
   font-family: Roboto;
   font-size: 25px;
   font-weight: 600px;

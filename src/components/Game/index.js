@@ -13,7 +13,6 @@ import {
   RulesButton,
   PopupView,
   PopupContainer,
-  PopupHeading,
   PopupImg,
   ResultPage,
   ResultTab,

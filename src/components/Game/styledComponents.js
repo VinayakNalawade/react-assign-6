@@ -19,7 +19,6 @@ export const GameTabsContainer = styled.ul`
   justify-content: center;
   padding: 0;
 `
-
 export const GameTabItem = styled.li`
   list-style-type: none;
   width: 48%;
@@ -77,7 +76,10 @@ export const PopupImg = styled.img`
 
 export const ResultPage = styled(GameTabsContainer)``
 
-export const ResultTab = styled(GameTabItem)`
+export const ResultTab = styled.li`
+  list-style-type: none;
+  width: 48%;
+  margin: 1%;
   text-align: center;
   margin: 0;
 `
@@ -90,4 +92,6 @@ export const ResultName = styled.h1`
   font-weight: 600px;
 `
 
-export const ResultIcon = styled(GameTabImg)``
+export const ResultIcon = styled.img`
+  width: 80%;
+`

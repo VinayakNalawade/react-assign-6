@@ -22,6 +22,8 @@ import {
 
 import Header from '../Header'
 
+import GameItem from '../GameItem'
+
 const choicesList = [
   {
     id: 'ROCK',
@@ -91,27 +93,59 @@ class Game extends Component {
 
   changeToGamePage = () => this.setState({currentPage: 'gamePage'})
 
+  //   renderGamePage = () => (
+  //     <GameTabsContainer>
+  //       {choicesList.map(each => (
+  //         <GameTabItem key={each.id}>
+  //           <GameItem
+  //             each={each}
+  //             key={each.id}
+  //             changeCurrentPage={this.changeCurrentPage}
+  //           />
+  //         </GameTabItem>
+  //       ))}
+  //     </GameTabsContainer>
+  //   )
+
   renderGamePage = () => (
     <GameTabsContainer>
-      {choicesList.map(each => (
-        <GameTabItem key={each.id}>
-          <GameTabButton
-            data-testid={`${each.id.toLowerCase()}Button`}
-            value={each.id}
-            onClick={this.changeCurrentPage}
-            type="button"
-          >
-            <GameTabImg alt={each.id} src={each.imageUrl} />
-          </GameTabButton>
+      <GameTabButton
+        data-testid="rockButton"
+        value={choicesList[0].id}
+        onClick={this.changeCurrentPage}
+        type="button"
+      >
+        <GameTabItem>
+          <GameTabImg alt={choicesList[0].id} src={choicesList[0].imageUrl} />
         </GameTabItem>
-      ))}
+      </GameTabButton>
+
+      <GameTabButton
+        data-testid="scissorsButton"
+        value={choicesList[1].id}
+        onClick={this.changeCurrentPage}
+        type="button"
+      >
+        <GameTabItem>
+          <GameTabImg alt={choicesList[1].id} src={choicesList[1].imageUrl} />
+        </GameTabItem>
+      </GameTabButton>
+
+      <GameTabButton
+        data-testid="paperButton"
+        value={choicesList[2].id}
+        onClick={this.changeCurrentPage}
+        type="button"
+      >
+        <GameTabItem>
+          <GameTabImg alt={choicesList[2].id} src={choicesList[2].imageUrl} />
+        </GameTabItem>
+      </GameTabButton>
     </GameTabsContainer>
   )
 
   renderResultPage = () => {
     const {user, opponent, result} = this.state
-
-    console.log(result)
 
     const userObj = choicesList.filter(each => each.id === user)
 

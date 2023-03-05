@@ -7,9 +7,6 @@ import {RiCloseLine} from 'react-icons/ri'
 import {
   MainContainer,
   GameTabsContainer,
-  GameTabItem,
-  GameTabButton,
-  GameTabImg,
   RulesButton,
   PopupView,
   PopupContainer,
@@ -21,6 +18,8 @@ import {
 } from './styledComponents'
 
 import Header from '../Header'
+
+import GameItem from '../GameItem'
 
 const choicesList = [
   {
@@ -49,10 +48,10 @@ class Game extends Component {
     result: '',
   }
 
-  changeCurrentPage = event => {
+  changeCurrentPage = id => {
     const opponent = choicesList[Math.floor(Math.random() * 3)].id
 
-    const user = event.target.alt
+    const user = id
 
     let result
     if (opponent === user) {
@@ -94,24 +93,17 @@ class Game extends Component {
   renderGamePage = () => (
     <GameTabsContainer>
       {choicesList.map(each => (
-        <GameTabItem key={each.id}>
-          <GameTabButton
-            data-testid={`${each.id.toLowerCase()}Button`}
-            value={each.id}
-            onClick={this.changeCurrentPage}
-            type="button"
-          >
-            <GameTabImg alt={each.id} src={each.imageUrl} />
-          </GameTabButton>
-        </GameTabItem>
+        <GameItem
+          key={each.id}
+          each={each}
+          changeCurrentPage={this.changeCurrentPage}
+        />
       ))}
     </GameTabsContainer>
   )
 
   renderResultPage = () => {
     const {user, opponent, result} = this.state
-
-    console.log(result)
 
     const userObj = choicesList.filter(each => each.id === user)
 
